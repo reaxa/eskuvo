@@ -1,0 +1,48 @@
+.dekor-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+
+}
+
+
+.dekor-card {
+  width: 250px;
+}
+
+.kiemelt {
+  border: 2px solid rgb(236, 0, 130);
+}
+
+mat-card-actions button {
+  background: none;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 10px;
+}
+
+mat-icon {
+  color: rgb(84, 6, 100); /* ha szeretnéd, lehet élénkebb is */
+  font-size: 24px;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+
+
+
+mat-card-actions button:hover mat-icon {
+  color: #d60073;
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+

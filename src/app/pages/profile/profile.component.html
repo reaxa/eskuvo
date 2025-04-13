@@ -1,0 +1,68 @@
+
+<main class="main-content">
+    <div class="profile-info-container" *ngIf="user">
+      <h2>Profil adatok</h2>
+      <p><strong>Név:</strong> {{ user.name | capitalize }}</p>
+      <p><strong>Email cím:</strong> {{ user.email }}</p>
+    </div>
+  
+
+
+
+
+    <div class="profile-forms-container">
+      <!-- Email update -->
+      <div class="profile-form-container">
+        <h3>Email cím megváltoztatása</h3>
+        <form (ngSubmit)="updateEmail()">
+          <div class="mb-3">
+            <label for="newEmail" class="form-label">Új email cím</label>
+            <input type="email" class="form-control" id="newEmail" [(ngModel)]="newEmail" name="newEmail" required>
+          </div>
+          <div class="button-container">
+            <button type="submit" class="btn btn-primary">Email frissítése</button>
+          </div>
+        </form>
+      </div>
+  
+      <!-- Password update -->
+      <div class="profile-form-container">
+        <h3>Jelszó megváltoztatása</h3>
+        <form (ngSubmit)="updatePassword()">
+          <div class="mb-3">
+            <label for="currentPassword" class="form-label">Jelenlegi jelszó</label>
+            <input type="password" class="form-control" id="currentPassword" [(ngModel)]="currentPassword" name="currentPassword" required>
+          </div>
+          <div class="mb-3">
+            <label for="newPassword" class="form-label">Új jelszó</label>
+            <input type="password" class="form-control" id="newPassword" [(ngModel)]="newPassword" name="newPassword" required>
+          </div>
+          <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Új jelszó megerősítése</label>
+            <input type="password" class="form-control" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required>
+          </div>
+          <div class="button-container">
+            <button type="submit" class="btn btn-primary">Jelszó frissítése</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+
+    <div class="previous-orders" *ngIf="previousOrders.length > 0">
+      <h2>Korábbi rendeléseid</h2>
+      <div *ngFor="let order of previousOrders" class="order-box">
+        <p><strong>Rendelés azonosító:</strong> {{ order.id }}</p>
+        <p><strong>Összeg:</strong> {{ order.osszeg }} Ft</p>
+        <ul>
+          <li *ngFor="let item of order.tetelek">
+            {{ item.dekoracio.nev }} - {{ item.mennyiseg }} db
+          </li>
+        </ul>
+        <hr>
+      </div>
+    </div>
+    
+  </main>
+  

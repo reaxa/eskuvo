@@ -1,0 +1,41 @@
+<body>
+    <div class="container">
+      <div class="login-box">
+        <form #form="ngForm" (ngSubmit)="onLogin(form)" id="loginForm">
+  
+          <h2>Bejelentkezés</h2>
+  
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" name="email" [(ngModel)]="email" required>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Jelszó</mat-label>
+            <input
+              matInput
+              [type]="showPassword ? 'text' : 'password'"
+              name="password"
+              [(ngModel)]="password"
+              required
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              type="button"
+              (click)="togglePasswordVisibility()"
+              [attr.aria-label]="'Jelszó megjelenítése'"
+            >
+              <mat-icon>{{ showPassword ? 'visibility_off' : 'remove_red_eye' }}</mat-icon>
+            </button>
+          </mat-form-field>
+  
+          <div class="submit-container">
+            <button mat-raised-button color="primary" type="submit">Bejelentkezés</button>
+          </div>
+  
+        </form>
+      </div>
+    </div>
+  </body>
+  

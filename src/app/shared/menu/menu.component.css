@@ -1,0 +1,69 @@
+nav {
+    background-color: white;
+    width: 100%;
+    z-index: 1000;
+    padding: 10px 0;
+    border-bottom: 2px solid #ccc;
+  }
+  
+  /* Menü gomb */
+  .hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px 20px;
+  }
+  
+  /* Alap menü */
+  ul {
+    display: flex;
+    list-style: none;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    gap: 150px;
+    height: 50px;
+  }
+  
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+  
+    .mobile-menu-wrapper.closed {
+      display: none;
+    }
+  
+    .mobile-menu-wrapper.open {
+      display: block;
+    }
+  
+    .mobile-menu-wrapper ul {
+      flex-direction: column;
+      width: 100%;
+      gap: 20px;
+      padding: 20px 0;
+      display: flex;
+      align-items: center;
+      
+      min-height: 100px;
+    }
+  }
+  
+  
+  /* Linkek */
+  a {
+    text-decoration: none;
+    color: rgb(149, 24, 160);
+    font-size: 20px;
+  }
+  
+  /* Aktív link */
+  .active {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #d60073;
+  }
+  

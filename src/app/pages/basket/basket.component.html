@@ -1,0 +1,28 @@
+<main class="main">
+    <div class="container">
+
+      
+      <div class="kosar-container">
+        <h2>Kosár tartalma</h2>
+        <div *ngFor="let tetel of kosar" class="tetel">
+          <span>{{ tetel.dekoracio.nev }}</span>
+          <span>{{ tetel.dekoracio.ar }} Ft x {{ tetel.mennyiseg }}</span>
+          <button mat-icon-button (click)="increase(tetel)"><mat-icon>add</mat-icon></button>
+          <button mat-icon-button (click)="decrease(tetel)"><mat-icon>remove</mat-icon></button>
+        </div>
+        <div class="osszeg">
+          Összesen: {{ total }} Ft
+        </div>
+        <div class="fizetes-gomb-container">
+          <button mat-raised-button color="primary" (click)="fizetes()">Fizetés</button>
+        </div>
+      </div>
+      <div></div>
+      <div class="megjegyzes">
+        <p class="text-center">Felhívjuk figyelmét, hogy a fizetés gombra történő kattintás,<br> fizetési kötelezettséget von maga után!</p>
+        <p class="text-center"><strong>Köszönjük a rendelést, visszavárjuk!</strong></p>
+       
+
+      </div>
+    </div>
+  </main>

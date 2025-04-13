@@ -1,0 +1,48 @@
+
+
+.fizetes-gomb-container {
+  margin: auto;
+  padding: 10px;
+  background-color: rgb(149, 24, 160);
+  border-radius: 12px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  width: 100px;
+  color: white;
+  
+  text-align: center;
+}
+
+.fizetes-gomb-container:hover {
+  background-color: rgb(231, 150, 245);
+}
+
+
+.megjegyzes{
+padding-top: 50px;
+padding: 20px;
+margin: auto;
+text-align: center;
+
+
+}
+.kosar-container {
+    padding: 1rem;
+    max-width:1000px;
+    margin: auto;
+    background-color: white;
+    border-radius: 8px;
+  }
+  
+  .tetel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.5rem 0;
+  }
+  
+  .osszeg {
+    text-align: right;
+    font-weight: bold;
+    margin-top: 1rem;
+  }

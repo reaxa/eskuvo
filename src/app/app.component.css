@@ -1,0 +1,9 @@
+html, body, main {
+    min-height:75vh;
+    margin: 0;
+  }
+
+.main-content {
+    padding-bottom: 60px; /* Ez a footer magassága */
+} 
+

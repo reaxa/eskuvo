@@ -1,0 +1,68 @@
+<main>
+    <div class="container">
+      <div class="login-box">
+        <form #form="ngForm" (ngSubmit)="onRegister(form)" id="registerForm">
+  
+          <h2>Regisztráció</h2>
+  
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Név</mat-label>
+            <input matInput type="text" name="name" placeholder="Teszt Elek" ngModel required />
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>E-mail</mat-label>
+            <input matInput type="email" name="email" placeholder="E-mail cím" ngModel required />
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Jelszó</mat-label>
+            <input
+              matInput
+              [type]="showPassword1 ? 'text' : 'password'"
+              name="password1"
+              placeholder="Titkos!"
+              ngModel
+              required
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              type="button"
+              (click)="togglePasswordVisibility('first')"
+              [attr.aria-label]="'Jelszó megjelenítése/elrejtése'"
+            >
+              <mat-icon>{{ showPassword1 ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Jelszó mégegyszer</mat-label>
+            <input
+              matInput
+              [type]="showPassword2 ? 'text' : 'password'"
+              name="password2"
+              placeholder="Titkos!"
+              ngModel
+              required
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              type="button"
+              (click)="togglePasswordVisibility('second')"
+              [attr.aria-label]="'Jelszó megjelenítése/elrejtése'"
+            >
+              <mat-icon>{{ showPassword2 ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+          </mat-form-field>
+  
+          <div class="submit-container">
+            <button mat-raised-button color="primary" type="submit">Regisztráció</button>
+          </div>
+  
+        </form>
+      </div>
+    </div>
+  </main>
+  

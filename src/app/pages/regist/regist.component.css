@@ -1,0 +1,61 @@
+/* Általános konténer, középre igazítás */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+  }
+  
+  /* Fehér doboz a form körül */
+  .login-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  /* Címsor */
+  h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  /* Űrlap mezők szélessége */
+  .full-width {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  /* Beküldő gomb konténer */
+  .submit-container {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    background-color: rgb(149, 24, 160);
+    color: white;
+    border: none;
+    cursor: pointer;
+    max-width: 80%;
+    padding: 10px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-container:hover {
+    background-color: rgb(115, 10, 125);
+  }
+  
+  /* Material mezők stílusa finoman */
+  mat-form-field {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Material ikon méret és elhelyezés */
+  mat-icon {
+    cursor: pointer;
+  }
+  

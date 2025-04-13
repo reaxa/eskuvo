@@ -1,0 +1,33 @@
+
+.footer {
+    background-color: #ffffff;
+    color: rgb(149, 24, 160);
+    padding: 20px 0;
+    text-align: center;
+    z-index: 1000; /* A footer mindig a tartalom felett jelenjen meg */
+  }
+  
+  .contact-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .contact-item i {
+    margin-right: 8px;
+  }
+  
+  .contact-item a {
+    color: rgb(149, 24, 160);
+    text-decoration: none;
+  }
+  
+  .contact-item a:hover {
+    text-decoration: underline;
+  }
+  

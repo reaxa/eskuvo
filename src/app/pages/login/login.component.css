@@ -1,0 +1,43 @@
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+  }
+  
+  .login-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .full-width {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  .submit-container {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    background-color: rgb(149, 24, 160);
+    color: white;
+    border: none;
+    cursor: pointer;
+    max-width: 80%;
+    padding: 10px;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.submit-container:hover {
+    background-color: rgb(115, 10, 125);
+}

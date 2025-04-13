@@ -1,0 +1,112 @@
+
+
+.main-content {
+    flex: 1;
+}
+h2{
+    text-align: center;
+    font-family: "Book Antiqua", serif;
+}
+
+/* Minden szöveg balra igazítása */
+body, h1,  h3, h4, h5, h6, p, li, div, span, label, input, button {
+    text-align: left;
+
+    font-family: "Book Antiqua", serif;
+}
+
+.profile-info-container {
+    background-color: rgb(149, 24, 160); 
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto 30px; /* Középre igazítás */
+    
+
+
+}
+
+
+.profile-forms-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap; /* így kisebb kijelzőn alá ugrik */
+    gap: 2rem;
+    margin: 0 auto 2rem;
+    max-width: 1000px;
+    width: 100%;
+    align-items: center;
+  }
+  
+  .profile-form-container {
+    flex: 1 1 300px; /* minden form külön kártya lesz */
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 45%;
+}
+
+.profile-form-container h2{
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+/* Beviteli mezők formázása */
+.profile-form .form-control,
+.newsletter-form .form-control {
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 1em;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+}
+
+
+
+button.btn-primary {
+    background-color: rgb(149, 24, 160);
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    justify-content: center;
+}
+
+
+button.btn-primary:hover{
+    background-color: rgb(115, 10, 125);
+}
+
+
+
+input[type="text"],
+input[type="password"],
+input[type="email"]{
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.previous-orders{
+
+background-color: rgba(255, 255, 255, 0.5); 
+border-radius: 8px;
+margin: auto;
+padding: 10px;
+
+}

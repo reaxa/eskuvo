@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+
+html{
+background-color: rgb(239, 203, 255);
+
+}
+
+main{
+    padding: 20px;
+}
+
+.snackbar-success {
+    background-color: rgb(115, 10, 125) !important;
+    color: white !important;
+    border-radius: 4px;  
+}
+
+.snackbar-success .mat-simple-snackbar-action {
+    color: rgb(115, 10, 125) !important;         
+    background-color:  rgb(236, 0, 130) !important;  
+    border-radius: 4px;
+  }
+  
+  .snackbar-warning {
+    background-color:  rgb(236, 0, 130) !important;  
+    color: white !important;
+    border-radius: 4px;
+  
+  }
+  
+  .snackbar-warning .mat-simple-snackbar-action{
+    color: white !important;
+    background-color:  rgb(236, 0, 130) !important;  
+
+    border-radius: 4px;
+  }

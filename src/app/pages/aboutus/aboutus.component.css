@@ -1,0 +1,18 @@
+
+.hero {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.intro {
+    border: 5px solid rgb(115, 10, 125);
+    background-color: #fef1ff;
+    
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: center;
+}
+h1{
+    color: rgb(236, 0, 130);
+}
