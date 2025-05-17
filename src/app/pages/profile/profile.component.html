@@ -1,9 +1,14 @@
 
 <main class="main-content">
     <div class="profile-info-container" *ngIf="user">
-      <h2>Profil adatok</h2>
-      <p><strong>Név:</strong> {{ user.name | capitalize }}</p>
-      <p><strong>Email cím:</strong> {{ user.email }}</p>
+      <mat-card>
+  <mat-card-title>Profil adatok</mat-card-title>
+  <mat-card-content>
+    <p><mat-icon>person</mat-icon> <strong>Név:</strong> {{ user.name | capitalize }}</p>
+    <p><mat-icon>email</mat-icon> <strong>Email:</strong> {{ user.email }}</p>
+  </mat-card-content>
+</mat-card>
+
     </div>
   
 

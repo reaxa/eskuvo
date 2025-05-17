@@ -14,7 +14,7 @@ import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
-
+import { MatIconModule } from '@angular/material/icon';
 
 
 @Component({

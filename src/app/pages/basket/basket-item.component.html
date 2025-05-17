@@ -1,0 +1,16 @@
+<div class="tetel">
+  <span class="nev">{{ nev }}</span>
+  <span class="ar">{{ ar * mennyiseg | ftFormat }}</span>
+
+  <button mat-icon-button aria-label="Mennyiség növelése" (click)="noveles.emit()">
+    <mat-icon>add</mat-icon>
+  </button>
+
+  <button mat-icon-button aria-label="Mennyiség csökkentése" [disabled]="mennyiseg === 0" (click)="csokkentes.emit()">
+    <mat-icon>remove</mat-icon>
+  </button>
+
+  <button mat-icon-button color="warn" aria-label="Tétel törlése" (click)="torles.emit()">
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>

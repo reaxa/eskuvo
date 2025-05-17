@@ -19,7 +19,7 @@ export class BasketService {
     private basketStorage: BasketStorageService,
     private injector: Injector
   ) {
-    // Késleltetett AuthService injektálás (ciklikus hiba elkerülése)
+
     setTimeout(() => {
       this.authService = this.injector.get(AuthService);
       const user = this.authService.getLoggedInUser();
@@ -43,6 +43,17 @@ export class BasketService {
       this.kosarSubject.next([]);
     }
   }
+
+
+removeItem(tetel: KosarTetel) {
+  this.kosar = this.kosar.filter(t => t !== tetel);
+  this.kosarSubject.next(this.kosar);
+  this.saveBasket();
+}
+
+clearItem(tetel: KosarTetel) {
+  this.removeItem(tetel);
+}
 
   private saveBasket() {
     if (this.currentUserEmail) {

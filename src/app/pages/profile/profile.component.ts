@@ -5,13 +5,18 @@ import { KosarTetel } from '../../models/kosar-tetel.model';
 import { AuthService, User } from '../../services/auth.service';
 import { CapitalizePipe } from '../../pipes/capitalize.pipe';
 import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+
 import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, FormsModule, CapitalizePipe, MatSnackBarModule],
+  imports: [CommonModule, FormsModule, CapitalizePipe, MatSnackBarModule, MatIconModule, MatCardModule, MatFormField, MatLabel],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })

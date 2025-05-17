@@ -12,6 +12,8 @@ import { LoginAlertDialog } from '../../login-alert-dialog.component';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { PaymentSuccessDialog } from './payment-success-dialog.component';
+import { FtFormatPipe } from '../../pipes/ftFormat.pipe';
+import { BasketItemComponent } from './basket-item.component';
 
 @Component({
   selector: 'app-basket',
@@ -25,7 +27,9 @@ import { PaymentSuccessDialog } from './payment-success-dialog.component';
     MatDialogModule,
     LoginAlertDialog,     
     PaymentSuccessDialog,
-    MatSnackBarModule     
+    MatSnackBarModule,
+    FtFormatPipe,
+    BasketItemComponent     
   ],
   templateUrl: './basket.component.html',
   styleUrls: ['./basket.component.css']
@@ -53,6 +57,11 @@ export class BasketComponent {
   get total(): number {
     return this.basketService.getTotal();
   }
+
+  
+remove(tetel: KosarTetel) {
+  this.basketService.removeItem(tetel);
+}
 
 
 
