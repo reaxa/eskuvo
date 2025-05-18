@@ -1,15 +1,4 @@
-<!--<ng-content></ng-content>
-<select #pageValue (change) ="menuSwitch(pageValue.value)"> 
-    
-    <option value="aboutus">Rólunk</option> 
-    <option value="categories">Dekorációk</option> 
-    <option value="basket">Kosár</option> 
-    <option value="profile">Profil</option>
-    <option value="login">Bejelentkezés</option> 
-    <option value="regist">Regisztráció </option> 
 
-    </select>
-    --> 
     <nav>
       <div class="hamburger" (click)="toggleMenu()">☰</div>
 
@@ -17,13 +6,13 @@
         <ul>
           <li><a routerLink="/aboutus" routerLinkActive="active">Rólunk</a></li>
           <li><a routerLink="/categories" routerLinkActive="active">Dekorációk</a></li>
-          <li *ngIf="isLoggedIn$ | async"><a routerLink="/basket">Kosár</a></li>
-          <li *ngIf="isLoggedIn$ | async"><a routerLink="/profile">Profil</a></li>
+          <li *ngIf="isLoggedIn$ | async"><a routerLink="/basket" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: false }">Kosár</a></li>
+          <li *ngIf="isLoggedIn$ | async"><a routerLink="/profile" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: false }">Profil</a></li>
           <li *ngIf="isLoggedIn$ | async">
             <a><button (click)="logout()" style="all: unset;">Kijelentkezés</button></a>
           </li>
-          <li *ngIf="!(isLoggedIn$ | async)"><a routerLink="/login">Bejelentkezés</a></li>
-          <li *ngIf="!(isLoggedIn$ | async)"><a routerLink="/regist">Regisztráció</a></li>
+          <li *ngIf="!(isLoggedIn$ | async)"><a routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: false }">Bejelentkezés</a></li>
+          <li *ngIf="!(isLoggedIn$ | async)"><a routerLink="/regist" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: false }">Regisztráció</a></li>
         </ul>
       </div>
       

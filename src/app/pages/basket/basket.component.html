@@ -1,69 +1,28 @@
-<!-- <main class="main">
-    <div class="container">
-
-      
-      <div class="kosar-container">
-        <h2>Kosár tartalma</h2>
-        <div *ngIf="kosar.length === 0" class="ures-kosar">
-  A kosár jelenleg üres, a Dekorációk oldalon tudsz kiválasztani életes eseményére tételeket.
-</div>
-        <div *ngFor="let tetel of kosar" class="tetel">
-          <span>{{ tetel.dekoracio.nev }}</span>
-<span>{{ tetel.dekoracio.ar * tetel.mennyiseg | ftFormat }}</span>
-          <button mat-icon-button (click)="increase(tetel)"><mat-icon>add</mat-icon></button>
-          <button mat-icon-button (click)="decrease(tetel)"><mat-icon>remove</mat-icon></button>
-        </div>
-        <div class="osszeg">
-          Összesen: {{ total }} Ft
-        </div>
-        <div class="fizetes-gomb-container">
-          <button mat-raised-button color="primary" (click)="fizetes()">Fizetés</button>
-        </div>
-      </div>
-      <div></div>
-      <div class="megjegyzes">
-        <p class="text-center">Felhívjuk figyelmét, hogy a fizetés gombra történő kattintás,<br> fizetési kötelezettséget von maga után!</p>
-        <p class="text-center"><strong>Köszönjük a rendelést, visszavárjuk!</strong></p>
-       
-
-      </div>
-    </div>
-  </main>
- -->
 <main class="main">
-  <div class="container">
+  <ng-container  class="kosar-container" *ngIf="(kosar$ | async) as kosar">
+  <div *ngIf="kosar.length === 0" class="ures-kosar">
+    A kosarad jelenleg üres.
+  </div>
 
-    <div class="kosar-container">
-      <h2>Kosár tartalma</h2>
+  <ng-container class="kosar-container" *ngIf="kosar.length > 0">
+    <app-basket-item
+      *ngFor="let tetel of kosar"
+      [nev]="tetel.dekoracio.nev"
+      [ar]="tetel.dekoracio.ar"
+      [mennyiseg]="tetel.mennyiseg"
+      (noveles)="increase(tetel)"
+      (csokkentes)="decrease(tetel)"
+      (torles)="remove(tetel)"
+    ></app-basket-item>
 
-      <!-- Üres kosár esetén -->
-      <div *ngIf="kosar.length === 0" class="ures-kosar">
-        A kosár jelenleg üres. A Dekorációk oldalon tudsz termékeket hozzáadni.
-      </div>
-
-      <!-- Kosár elemei -->
-      <ng-container *ngIf="kosar.length > 0">
-        <app-basket-item
-          *ngFor="let tetel of kosar"
-          [nev]="tetel.dekoracio.nev"
-          [ar]="tetel.dekoracio.ar"
-          [mennyiseg]="tetel.mennyiseg"
-          (noveles)="increase(tetel)"
-          (csokkentes)="decrease(tetel)"
-          (torles)="remove(tetel)">
-        </app-basket-item>
-      </ng-container>
-
-      <!-- Összegzés -->
-      <div class="osszeg" *ngIf="kosar.length > 0">
-        Összesen: {{ total | ftFormat }}
-      </div>
-
-      <!-- Fizetési gomb -->
-      <div class="fizetes-gomb-container" *ngIf="kosar.length > 0">
-        <button mat-raised-button color="primary" (click)="fizetes()">Fizetés</button>
-      </div>
+    <div class="osszeg">
+      Összesen: {{ basketService.getTotal() | ftFormat }}
     </div>
+    <div class="fizetes-gomb-container">
+      <button mat-raised-button color="primary" (click)="fizetes()">Fizetés</button>
+    </div>
+  </ng-container>
+  
 
     <!-- Megjegyzés -->
     <div class="megjegyzes">
@@ -73,6 +32,8 @@
       </p>
       <p class="text-center"><strong>Köszönjük a rendelést, visszavárjuk!</strong></p>
     </div>
-
-  </div>
+</ng-container>
 </main>
+
+
+

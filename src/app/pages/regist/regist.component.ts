@@ -33,22 +33,20 @@ export class RegistComponent {
   }
 
 
-  onRegister(form: NgForm) {
-    const { name, email, password1, password2 } = form.value;
+ async onRegister(form: NgForm) {
+  const { name, email, password1, password2 } = form.value;
 
-    if (password1 !== password2) {
-      alert('A jelszavak nem egyeznek!');
-      return;
-    }
-
-
-    const success = this.authService.register({ name, email, password: password1 });
-    if (success) {
-      
-      this.authService.login(email, password1); // Automatikus bejelentkeztetés
-      this.router.navigate(['/profile']);
-    } else {
-      alert('Ez az email már regisztrálva van.');
-    }
+  if (password1 !== password2) {
+    alert('A jelszavak nem egyeznek!');
+    return;
   }
+
+  const success = await this.authService.register(email, password1, name);
+  if (success) {
+    await this.authService.login(email, password1); 
+    this.router.navigate(['/profile']);
+  } else {
+    alert('Ez az email már regisztrálva van.');
+  }
+}
 }

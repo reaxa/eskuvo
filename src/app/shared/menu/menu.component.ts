@@ -18,7 +18,7 @@ export class MenuComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.isLoggedIn$ = this.authService.isLoggedIn$;
     
-    // Add these debug logs
+ 
     console.log("MenuComponent initialized - auth state:", this.authService.isLoggedIn());
     this.isLoggedIn$.subscribe(isLoggedIn => {
       console.log("Auth state changed in MenuComponent:", isLoggedIn);

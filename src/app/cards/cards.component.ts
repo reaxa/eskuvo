@@ -21,9 +21,9 @@ import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar';
           <p><strong>{{ dekor.ar }} Ft</strong></p>
         </mat-card-content>
         <mat-card-actions>
-          <button *ngIf="authService.isLoggedIn()" (click)="addToBasket(dekor)">
-            <mat-icon>shopping_cart</mat-icon>
-          </button>
+          <button *ngIf="authService.isLoggedIn$ | async" (click)="addToBasket(dekor)">
+  <mat-icon>shopping_cart</mat-icon>
+</button>
         </mat-card-actions>
       </mat-card>
     </div>

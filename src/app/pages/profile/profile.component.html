@@ -1,73 +1,74 @@
-
 <main class="main-content">
-    <div class="profile-info-container" *ngIf="user">
-      <mat-card>
-  <mat-card-title>Profil adatok</mat-card-title>
-  <mat-card-content>
-    <p><mat-icon>person</mat-icon> <strong>Név:</strong> {{ user.name | capitalize }}</p>
-    <p><mat-icon>email</mat-icon> <strong>Email:</strong> {{ user.email }}</p>
-  </mat-card-content>
-</mat-card>
+  <div class="profile-info-container" *ngIf="user">
+    <mat-card>
+      <mat-card-title>Profil adatok</mat-card-title>
+      <mat-card-content>
+        <p><mat-icon>person</mat-icon> <strong>Név:</strong> {{ displayName | capitalize }}</p>
+        <p><mat-icon>email</mat-icon> <strong>Email:</strong> {{ user.email }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
 
-    </div>
-  
-
-
-
-
-    <div class="profile-forms-container">
-      <!-- Email update -->
-      <div class="profile-form-container">
-        <h3>Email cím megváltoztatása</h3>
-        <form (ngSubmit)="updateEmail()">
-          <div class="mb-3">
-            <label for="newEmail" class="form-label">Új email cím</label>
-            <input type="email" class="form-control" id="newEmail" [(ngModel)]="newEmail" name="newEmail" required>
-          </div>
-          <div class="button-container">
-            <button type="submit" class="btn btn-primary">Email frissítése</button>
-          </div>
-        </form>
-      </div>
-  
-      <!-- Password update -->
-      <div class="profile-form-container">
-        <h3>Jelszó megváltoztatása</h3>
-        <form (ngSubmit)="updatePassword()">
-          <div class="mb-3">
-            <label for="currentPassword" class="form-label">Jelenlegi jelszó</label>
-            <input type="password" class="form-control" id="currentPassword" [(ngModel)]="currentPassword" name="currentPassword" required>
-          </div>
-          <div class="mb-3">
-            <label for="newPassword" class="form-label">Új jelszó</label>
-            <input type="password" class="form-control" id="newPassword" [(ngModel)]="newPassword" name="newPassword" required>
-          </div>
-          <div class="mb-3">
-            <label for="confirmPassword" class="form-label">Új jelszó megerősítése</label>
-            <input type="password" class="form-control" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required>
-          </div>
-          <div class="button-container">
-            <button type="submit" class="btn btn-primary">Jelszó frissítése</button>
-          </div>
-        </form>
-      </div>
+  <div class="profile-forms-container">
+    <div class="profile-form-container">
+      <h3>Email cím megváltoztatása</h3>
+      <form (ngSubmit)="updateEmail()">
+        <div class="mb-3">
+          <label for="newEmail" class="form-label">Új email cím</label>
+          <input type="email" class="form-control" id="newEmail" [(ngModel)]="newEmail" name="newEmail" required>
+        </div>
+        <div class="mb-3">
+          <label for="currentPasswordForEmail" class="form-label">Jelenlegi jelszó</label>
+          <input type="password" class="form-control" id="currentPasswordForEmail" [(ngModel)]="currentPasswordForEmail" name="currentPasswordForEmail" required>
+        </div>
+        <div class="button-container">
+          <button type="submit" class="btn btn-primary">Email frissítése</button>
+        </div>
+      </form>
     </div>
 
+    <div class="profile-form-container">
+      <h3>Jelszó megváltoztatása</h3>
+      <form (ngSubmit)="updatePassword()">
+        <div class="mb-3">
+          <label for="currentPassword" class="form-label">Jelenlegi jelszó</label>
+          <input type="password" class="form-control" id="currentPassword" [(ngModel)]="currentPassword" name="currentPassword" required>
+        </div>
+        <div class="mb-3">
+          <label for="newPassword" class="form-label">Új jelszó</label>
+          <input type="password" class="form-control" id="newPassword" [(ngModel)]="newPassword" name="newPassword" required>
+        </div>
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label">Új jelszó megerősítése</label>
+          <input type="password" class="form-control" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required>
+        </div>
+        <div class="button-container">
+          <button type="submit" class="btn btn-primary">Jelszó frissítése</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
-
-    <div class="previous-orders" *ngIf="previousOrders.length > 0">
+  <ng-container *ngIf="previousOrders$ | async as previousOrders">
+    <div class="previous-orders-container">
       <h2>Korábbi rendeléseid</h2>
-      <div *ngFor="let order of previousOrders" class="order-box">
-        <p><strong>Rendelés azonosító:</strong> {{ order.id }}</p>
-        <p><strong>Összeg:</strong> {{ order.osszeg }} Ft</p>
-        <ul>
-          <li *ngFor="let item of order.tetelek">
-            {{ item.dekoracio.nev }} - {{ item.mennyiseg }} db
-          </li>
-        </ul>
-        <hr>
+      <div *ngIf="previousOrders && previousOrders.length > 0; else noOrders">
+        <div *ngFor="let order of previousOrders" class="order-box">
+          <p><strong>Rendelés azonosító:</strong> {{ order.id }}</p>
+<p><strong>Dátum:</strong> {{ order.createdAt | date:'yyyy.MM.dd HH:mm' }}</p>
+   <h4>Tételek:</h4>
+          <ul>
+            <li *ngFor="let item of order.tetelek">
+              {{ item.dekoracio.nev }} - Mennyiség: {{ item.mennyiseg }} db - Egységár: {{ item.dekoracio.ar | ftFormat }}
+            </li>
+          </ul>
+          <hr>
+        </div>
       </div>
+      <ng-template #noOrders>
+        <p>Nincsenek korábbi rendeléseid.</p>
+      </ng-template>
     </div>
-    
+  </ng-container>
+
   </main>
-  

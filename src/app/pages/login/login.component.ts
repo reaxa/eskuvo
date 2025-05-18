@@ -33,16 +33,16 @@ export class LoginComponent {
     this.showPassword = !this.showPassword;
   }
 
-  onLogin(form: NgForm): void {
-    if (!form.valid) return;
+ async onLogin(form: NgForm): Promise<void> {
+  if (!form.valid) return;
 
-    const { email, password } = form.value;
-    const user = this.authService.login(email, password);
+  const { email, password } = form.value;
+  const success = await this.authService.login(email, password);
 
-    if (user) {
-      this.router.navigate(['/profile']);
-    } else {
-      alert('Hibás email vagy jelszó!');
-    }
+  if (success) {
+    this.router.navigate(['/profile']);
+  } else {
+    alert('Hibás email vagy jelszó!');
   }
+}
 }

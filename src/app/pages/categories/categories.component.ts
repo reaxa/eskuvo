@@ -4,14 +4,13 @@ import { BasketService } from '../../services/basket.service';
 import { CardsComponent } from '../../cards/cards.component';
 import { AuthService } from '../../services/auth.service'; 
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-
-import { LoginAlertDialog } from '../../login-alert-dialog.component'; 
-
+import { CommonModule } from '@angular/common';
+import { LoginAlertDialog } from '../../login-alert-dialog.component';
 
 @Component({
   selector: 'app-categories',
   standalone: true,
-  imports: [CardsComponent],
+  imports: [CommonModule, CardsComponent, MatDialogModule],
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.css']
 })
@@ -159,24 +158,25 @@ export class CategoriesComponent implements OnInit {
     }
   ];
   
-
   constructor(
     private basketService: BasketService,
     private authService: AuthService,
     private dialog: MatDialog 
   ) {}
 
-
-
-
-
   ngOnInit(): void {
     if (!this.authService.isLoggedIn()) {
-      this.dialog.open(LoginAlertDialog); // 💬 Material popup
+      this.dialog.open(LoginAlertDialog);
     }
   }
 
   addToBasket(dekor: Dekoracio) {
+    if (!this.authService.isLoggedIn()) {
+      this.dialog.open(LoginAlertDialog);
+      return;
+    }
+    
+    console.log('Kosárhoz adás:', dekor);
     this.basketService.addToBasket(dekor);
   }
 }
